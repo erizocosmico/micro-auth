@@ -56,6 +56,10 @@ app.delete('/account', auth, controller.eraseAccount);
 If the provided data is valid and does not exist on the server the user will be signed up and a token for that user will be returned.
 If the data already exists on the server the user will be signed in.
 
+*This controller expects 2 params in the body:"
+* *username*: User username
+* *password*: User password
+
 A successful request (either login or signup) will respond with this:
 ```json
 {
@@ -82,7 +86,7 @@ The error response is the same as the one that loginOrSignup would send. If the 
 {
     "success": true
 }
-``
+```
 
 #### eraseAccount
 

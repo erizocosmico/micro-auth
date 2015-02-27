@@ -1,0 +1,77 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.36
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add name=undefined spec="." args=[".",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: '.',
+7 verbose parsed url   path: '.',
+7 verbose parsed url   href: '.' }
+8 silly lockFile 3a52ce78- .
+9 verbose lock . /Users/mvader/.npm/3a52ce78-.lock
+10 verbose tar pack [ '/Users/mvader/.npm/micro-auth/0.8.2/package.tgz', '.' ]
+11 verbose tarball /Users/mvader/.npm/micro-auth/0.8.2/package.tgz
+12 verbose folder .
+13 info prepublish micro-auth@0.8.2
+14 silly lockFile 1f1177db-tar tar://.
+15 verbose lock tar://. /Users/mvader/.npm/1f1177db-tar.lock
+16 silly lockFile a6e07b31-npm-micro-auth-0-8-2-package-tgz tar:///Users/mvader/.npm/micro-auth/0.8.2/package.tgz
+17 verbose lock tar:///Users/mvader/.npm/micro-auth/0.8.2/package.tgz /Users/mvader/.npm/a6e07b31-npm-micro-auth-0-8-2-package-tgz.lock
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile a6e07b31-npm-micro-auth-0-8-2-package-tgz tar:///Users/mvader/.npm/micro-auth/0.8.2/package.tgz
+21 silly lockFile a6e07b31-npm-micro-auth-0-8-2-package-tgz tar:///Users/mvader/.npm/micro-auth/0.8.2/package.tgz
+22 silly lockFile a32aad07-der-npm-micro-auth-0-8-2-package /Users/mvader/.npm/micro-auth/0.8.2/package
+23 verbose lock /Users/mvader/.npm/micro-auth/0.8.2/package /Users/mvader/.npm/a32aad07-der-npm-micro-auth-0-8-2-package.lock
+24 silly lockFile a32aad07-der-npm-micro-auth-0-8-2-package /Users/mvader/.npm/micro-auth/0.8.2/package
+25 silly lockFile a32aad07-der-npm-micro-auth-0-8-2-package /Users/mvader/.npm/micro-auth/0.8.2/package
+26 silly lockFile 3a52ce78- .
+27 silly lockFile 3a52ce78- .
+28 silly publish { name: 'micro-auth',
+28 silly publish   version: '0.8.2',
+28 silly publish   description: 'µAuth is a small and configurable user system with login/signup, logout, erase user account and authentication middleware for Express framework.',
+28 silly publish   main: 'index.js',
+28 silly publish   scripts: { test: 'mocha' },
+28 silly publish   repository: { type: 'git', url: 'https://github.com/mvader/micro-auth' },
+28 silly publish   keywords: [ 'express', 'auth', 'user management' ],
+28 silly publish   author: { name: 'Miguel Molina', email: 'hi@mvader.me' },
+28 silly publish   license: 'MIT',
+28 silly publish   bugs: { url: 'https://github.com/getcloset/closet/issues' },
+28 silly publish   homepage: 'https://github.com/getcloset/closet-server',
+28 silly publish   dependencies:
+28 silly publish    { express: '4.11.*',
+28 silly publish      lodash: '2.4.*',
+28 silly publish      'body-parser': '~1.0.0',
+28 silly publish      mongoose: '3.6.*',
+28 silly publish      'rand-token': '0.2.*',
+28 silly publish      bcrypt: '0.8.*' },
+28 silly publish   devDependencies:
+28 silly publish    { supertest: '0.7.*',
+28 silly publish      mocha: '1.*',
+28 silly publish      'mocha-mongoose': '1.0.*',
+28 silly publish      expect: '1.6.*' },
+28 silly publish   readme: '# µAuth [![Build Status](https://travis-ci.org/mvader/micro-auth.svg)](https://travis-ci.org/mvader/micro-auth)\nµAuth is a small and configurable user system with login/signup, logout, erase user account and authentication middleware for Express framework.\n\n## Install\n\n```\nnpm install micro-auth\n```\n\n## Usage\n\n```javascript\nvar microAuth = require(\'micro-auth\');\n\n// Because the token model can be customized we need to create a new token model\n// passing an options object is optional\nvar tokenModel = microAuth.createTokenModel();\n\n// Because the user model can be customized we need to create a new user model\n// passing an options object is optional\nvar userModel = microAuth.createUserModel();\n\n// Since the user and the token models are created by the user, it is needed to pass it\n// to the auth middleware\nvar auth = microAuth.createAuthMiddleware(tokenModel, userModel);\n\n// Since the user and the token models are created by the user, it is needed to pass it\n// to the controller\nvar controller = microAuth.createUserController(tokenModel, userModel);\n\n// app is an Express.js app\napp.post(\'/login\', controller.loginOrSignup);\napp.delete(\'/logout\', auth, controller.logout);\napp.delete(\'/account\', auth, controller.eraseAccount);\n```\n\n### Options for TokenModel\n\n* {Number} defaultTokenExpiration: the number of seconds the token will be valid\n* {Object} customSchemaFields: custom fields for the Token schema. Must be valid Mongoose fields\n* {Number} tokenLength: default length of the token random string\n* {Object} defaultTokenValues: provide some default values for the custom schema fields you defined when creating a new token\n* {Object} statics: Static methods to be added to the schema. The object key will be the method name and the value will be the method. The value must be a function.\n* {Object} methods: Instance methods to be added to the schema. The object key will be the method name and the value will be the method. The value must be a function.\n\n### Options for UserModel\n\n* {Object} customSchemaFields: custom fields for the User schema. Must be valid Mongoose fields\n* {Object} statics: Static methods to be added to the schema. The object key will be the method name and the value will be the method. The value must be a function.\n* {Object} methods: Instance methods to be added to the schema. The object key will be the method name and the value will be the method. The value must be a function.\n* {Number} saltWorkFactor: BCrypt salt work factor for crypting passwords\n\n### Methods of the UserController\n\n### loginOrSignup\nIf the provided data is valid and does not exist on the server the user will be signed up and a token for that user will be returned.\nIf the data already exists on the server the user will be signed in.\n\nA successful request (either login or signup) will respond with this:\n```json\n{\n    "error": false,\n    "token": "my token",\n    "expiration": expiration of my token\n}\n```\n\nAn invalid request will respond with this:\n```json\n{\n    "error": true,\n    "message": "Error message"\n}\n```\n\n#### logout\n\nWill erase the token you use to authenticate yourself. Auth middleware must precede this handler\'s invocation in the endpoint.\nThe error response is the same as the one that loginOrSignup would send. If the request is successfuly you will get this:\n\n```json\n{\n    "success": true\n}\n``\n\n#### eraseAccount\n\nDestroys the user account associated to the token you used to authenticate yourself. Auth middleware must precede this handler\'s invocation in the endpoint.\nThe error response is the same as the one that loginOrSignup would send. If the request is successfuly you will get this:\n\n```json\n{\n    "success": true\n}\n``\n\n### Authentication\n\nThe authentication middleware will the for a value like "Bearer: MY TOKEN" in the Authorization header. If the token is valid an is associated to the user it will pass to the next handler, otherwise it will throw a 401 error using the Express next(error) mechanism (which you really should be using for managing errors in your express app).\nAn invalid request will respond with something like this:\n```json\n{\n    "error": false,\n    "message": "Error message"\n}\n``\n\n### TODO\n* Controllers options hooks\n* Test custom options',
+28 silly publish   readmeFilename: 'README.md',
+28 silly publish   gitHead: '4f9ff9badc6c1434d9d814752245e7a3b3478b64',
+28 silly publish   _id: 'micro-auth@0.8.2',
+28 silly publish   _shasum: 'cccc30a47d634d9ed8510e97a5b4b40351e739a6',
+28 silly publish   _from: '.' }
+29 error need auth auth and email required for publishing
+29 error need auth You need to authorize this machine using `npm adduser`
+30 error System Darwin 14.1.0
+31 error command "node" "/usr/local/bin/npm" "publish"
+32 error cwd /Users/mvader/micro-auth
+33 error node -v v0.10.36
+34 error npm -v 1.4.28
+35 error code ENEEDAUTH
+36 verbose exit [ 1, true ]
