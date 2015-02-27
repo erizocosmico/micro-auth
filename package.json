@@ -1,6 +1,6 @@
 {
   "name": "micro-auth",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "description": "µAuth is a small and configurable user system with login/signup, logout, erase user account and authentication middleware for Express framework.",
   "main": "index.js",
   "scripts": {

@@ -36,19 +36,19 @@ app.delete('/account', auth, controller.eraseAccount);
 
 ### Options for TokenModel
 
-* {Number} defaultTokenExpiration: the number of seconds the token will be valid
-* {Object} customSchemaFields: custom fields for the Token schema. Must be valid Mongoose fields
-* {Number} tokenLength: default length of the token random string
-* {Object} defaultTokenValues: provide some default values for the custom schema fields you defined when creating a new token
-* {Object} statics: Static methods to be added to the schema. The object key will be the method name and the value will be the method. The value must be a function.
-* {Object} methods: Instance methods to be added to the schema. The object key will be the method name and the value will be the method. The value must be a function.
+* *{Number} defaultTokenExpiration:* the number of seconds the token will be valid
+* *{Object} customSchemaFields:* custom fields for the Token schema. Must be valid Mongoose fields
+* *{Number} tokenLength:* default length of the token random string
+* *{Object} defaultTokenValues:* provide some default values for the custom schema fields you defined when creating a new token
+* *{Object} statics:* Static methods to be added to the schema. The object key will be the method name and the value will be the method. The value must be a function.
+* *{Object} methods:* Instance methods to be added to the schema. The object key will be the method name and the value will be the method. The value must be a function.
 
 ### Options for UserModel
 
-* {Object} customSchemaFields: custom fields for the User schema. Must be valid Mongoose fields
-* {Object} statics: Static methods to be added to the schema. The object key will be the method name and the value will be the method. The value must be a function.
-* {Object} methods: Instance methods to be added to the schema. The object key will be the method name and the value will be the method. The value must be a function.
-* {Number} saltWorkFactor: BCrypt salt work factor for crypting passwords
+* *{Object} customSchemaFields:* custom fields for the User schema. Must be valid Mongoose fields
+* *{Object} statics:* Static methods to be added to the schema. The object key will be the method name and the value will be the method. The value must be a function.
+* *{Object} methods:* Instance methods to be added to the schema. The object key will be the method name and the value will be the method. The value must be a function.
+* *{Number} saltWorkFactor:* BCrypt salt work factor for crypting passwords
 
 ### Methods of the UserController
 
@@ -97,7 +97,7 @@ The error response is the same as the one that loginOrSignup would send. If the 
 {
     "success": true
 }
-``
+```
 
 ### Authentication
 
@@ -108,7 +108,7 @@ An invalid request will respond with something like this:
     "error": false,
     "message": "Error message"
 }
-``
+```
 
 ### TODO
 * Controllers options hooks
