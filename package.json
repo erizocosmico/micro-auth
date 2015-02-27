@@ -1,0 +1,38 @@
+{
+  "name": "micro-auth",
+  "version": "0.8.1",
+  "description": "µAuth is a small and configurable user system with login/signup, logout, erase user account and authentication middleware for Express framework.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mvader/micro-auth"
+  },
+  "keywords": [
+    "express",
+    "auth",
+    "user management"
+  ],
+  "author": "Miguel Molina <hi@mvader.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/getcloset/closet/issues"
+  },
+  "homepage": "https://github.com/getcloset/closet-server",
+  "dependencies" : {
+    "express" : "4.11.*",
+    "lodash" : "2.4.*",
+    "body-parser" : "~1.0.0",
+    "mongoose" : "3.6.*",
+    "rand-token": "0.2.*",
+    "bcrypt": "0.8.*"
+  },
+  "devDependencies": {
+    "supertest": "0.7.*",
+    "mocha": "1.*",
+    "mocha-mongoose": "1.0.*",
+    "expect": "1.6.*"
+  }
+}
