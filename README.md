@@ -99,6 +99,33 @@ The error response is the same as the one that loginOrSignup would send. If the 
 }
 ```
 
+### Options for user controller
+
+There are a few hooks you can use to customize the user controllers. All hooks are functions that will receive the same parameters an express middleware would receive.
+**Note:** they will not send any response. If you use these hooks you will have to send a response yourself on your handler.
+
+* **onLogin:** invoked after the user is logged in or signed up and the token is created. In order to know if it was a register or a login you can access the ```isLogin``` or ```isSignup``` available on the ```req``` parameter. The generated token is also available as ```token``` on the request.
+* **onLogout** invoked after the user is logged out.
+* **onEraseAccount:** invoked after the user and its tokens are removed.
+
+**Example hook:**
+```javascript
+function onEraseAccount(req, res, next) {
+    // Remove user-related stuff after it is deleted
+    MyOtherModel.remove({userId: req.user._id}, function (err) {
+        if (err) next(err);
+
+        res.send({
+            'error': false
+        });
+    });
+}
+
+microAuth.createUserController(tokenModel, userModel, {
+    onEraseAccount: onEraseAccount
+});
+```
+
 ### Authentication
 
 The authentication middleware will the for a value like "Bearer: MY TOKEN" in the Authorization header. If the token is valid an is associated to the user it will pass to the next handler, otherwise it will throw a 401 error using the Express next(error) mechanism (which you really should be using for managing errors in your express app).
@@ -111,5 +138,4 @@ An invalid request will respond with something like this:
 ```
 
 ### TODO
-* Controllers options hooks
 * Test custom options
