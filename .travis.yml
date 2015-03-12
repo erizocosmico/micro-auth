@@ -6,3 +6,8 @@ node_js:
   - "iojs-v1.0.4"
 services:
   - mongodb
+after_script:
+  - npm install -g istanbul
+  - npm install -g codeclimate-test-reporter
+  - istanbul cover node_modules/.bin/_mocha
+  - CODECLIMATE_REPO_TOKEN=94bd8ce40ebb8057652a7dce9bd6e02a42d91eb0cec0a97a8c1ad9ddfcb99093 codeclimate < coverage/lcov.info
