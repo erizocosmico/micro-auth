@@ -1,4 +1,4 @@
-# µAuth [![Build Status](https://travis-ci.org/mvader/micro-auth.svg)](https://travis-ci.org/mvader/micro-auth)
+# µAuth [![Build Status](https://travis-ci.org/mvader/micro-auth.svg)](https://travis-ci.org/mvader/micro-auth) [![Code Climate](https://codeclimate.com/github/mvader/micro-auth/badges/gpa.svg)](https://codeclimate.com/github/mvader/micro-auth) [![Test Coverage](https://codeclimate.com/github/mvader/micro-auth/badges/coverage.svg)](https://codeclimate.com/github/mvader/micro-auth)
 µAuth is a small and configurable user system with login/signup, logout, erase user account and authentication middleware for Express framework.
 
 ## Install
